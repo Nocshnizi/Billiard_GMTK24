@@ -35,6 +35,7 @@ public class BiliardBall : MonoBehaviour
     public void YEEt()
     {
         rb.AddForce(Random.insideUnitCircle * 25, ForceMode2D.Impulse);
+        rb.AddTorque((Random.Range(0, 2) - 1) * Random.Range(60, 250) * Mathf.Deg2Rad, ForceMode2D.Impulse);
     }
 
     public void Moving() 
