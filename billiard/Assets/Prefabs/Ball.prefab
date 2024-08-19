@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.59, y: -0.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.46, y: 1.46, z: 1.46}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4162255554335117733}
@@ -112,12 +112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTotalScale: 4
   minTotalScale: 0.8
-  xRange: {x: -22, y: 22}
-  yRange: {x: -11.5, y: 11.5}
-  positionScaleRange: {x: 0.8, y: 4}
+  xRange: {x: -20, y: 17.5}
+  yRange: {x: -9, y: 9}
+  positionScaleRange: {x: 0.8, y: 3}
   ballScale: {fileID: 2483896199288986952}
   rb: {fileID: 6904311736733928333}
   meshRenderer: {fileID: 0}
+  animationSpeed: 1
 --- !u!1 &3591729128392696895
 GameObject:
   m_ObjectHideFlags: 0
