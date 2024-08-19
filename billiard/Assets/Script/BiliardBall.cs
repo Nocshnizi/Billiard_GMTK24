@@ -1,8 +1,6 @@
 using System;
-using Unity.VisualScripting;
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
 
 public class BiliardBall : MonoBehaviour
 {
@@ -16,16 +14,20 @@ public class BiliardBall : MonoBehaviour
 
     [SerializeField] private GameObject ballScale;
     [SerializeField] private Rigidbody2D rb;
-
-    [SerializeField] private bool YEEtOnStart = false;
+    [SerializeField] [CanBeNull] private MeshRenderer meshRenderer;
+    [SerializeField] private float animationSpeed = 1;
     
     private bool _shouldAdjustScale = false;
     private float _givenScale = 0;
-    
+    private Material _material;
+
+    public Rigidbody2D BallRigidbody => rb;
+    public float BallScale => ballScale.transform.localScale.x;
+
     private void Start()
     {
-        if(YEEtOnStart)
-            YEEt();
+        if(meshRenderer != null)
+            _material = meshRenderer.material;
     }
 
     private void Update()
@@ -33,21 +35,21 @@ public class BiliardBall : MonoBehaviour
         float scale = CalculateTotalScale();
         ballScale.transform.localScale = new Vector3(scale, scale, 1);
         rb.mass = scale + 1;
+        
+        _material?.SetVector("_Speed", new Vector2(rb.linearVelocity.x, rb.linearVelocity.y) * animationSpeed);
     }
 
     public void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (!collision.gameObject.TryGetComponent<BiliardBall>(out BiliardBall ball))
+        if (!collision.gameObject.TryGetComponent(out BiliardBall ball))
             return;
 
         if (_shouldAdjustScale) 
         {
             ball._givenScale = 0;
             _givenScale = 0;
-
-
-
-            if (ball.ballScale.transform.localScale.x> ballScale.transform.localScale.x)
+            
+            if (ball.BallScale > BallScale)
             {
                 ball._givenScale = minTotalScale - ball.CalculateTotalScale();
                 _givenScale = ball.CalculateTotalScale() - minTotalScale;
@@ -67,11 +69,6 @@ public class BiliardBall : MonoBehaviour
         }
     }
 
-    public void YEEt() {
-        rb.AddForce(Random.insideUnitCircle * 25, ForceMode2D.Impulse);
-        rb.AddTorque((Random.Range(0, 2) - 1) * Random.Range(60, 250) * Mathf.Deg2Rad, ForceMode2D.Impulse);
-    }
-
     private float CalculatePositionalScale() {
         // 0 .. 1
         float xRate = (transform.position.x - xRange.x) / (xRange.y - xRange.x);
@@ -86,5 +83,11 @@ public class BiliardBall : MonoBehaviour
         float positionScale = CalculatePositionalScale();
         float scale = positionScale + _givenScale;
         return Mathf.Clamp(scale, minTotalScale, maxTotalScale);
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, CalculatePositionalScale());
     }
 }
