@@ -8,6 +8,7 @@ public class BilliardManager : MonoBehaviour
     [SerializeField] private List<BiliardBall> balls;
     [SerializeField] private BilliardHole[] holes;
     [SerializeField] private BilliardStick stick;
+    [SerializeField] private GameObject winScreen;
     
     public event Action<int> OnScoreUpdated;
     
@@ -33,10 +34,12 @@ public class BilliardManager : MonoBehaviour
                     {
                         _targetBall = balls[0];
                         stick.SetTargetBall(_targetBall.BallRigidbody);
+                        winScreen.SetActive(false);
                     }
                     else
                     {
                         stick.SetTargetBall(null);
+                        winScreen.SetActive(true);
                         Debug.Log("Game Over!");
                     }
                 }
