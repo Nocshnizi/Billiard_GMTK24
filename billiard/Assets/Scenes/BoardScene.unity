@@ -2331,10 +2331,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2013105634}
     m_Modifications:
+    - target: {fileID: 1125591579840255885, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648565760749916354, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4690813636261133979, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5650423645720384679, guid: 4bcfc2d41b6ef504d8cd7aee27f5cfe5, type: 3}
+      objectReference: {fileID: -5639933051883011497, guid: 09e67b4dd9fedda4aabb61cc429735c0, type: 3}
     - target: {fileID: 7936294814380660884, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2418,14 +2426,14 @@ PrefabInstance:
     - target: {fileID: 8638588095464288755, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9ea118ada0c651c439c7822203e18836, type: 3}
+      objectReference: {fileID: 7957891932872671093, guid: 901f5e120a418cb408aa058a5e33711a, type: 3}
     - target: {fileID: 9043604867508523219, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
       propertyPath: m_Name
       value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 9043604867508523219, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
