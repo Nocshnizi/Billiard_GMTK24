@@ -1,6 +1,7 @@
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BiliardBall : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class BiliardBall : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] [CanBeNull] private MeshRenderer meshRenderer;
     [SerializeField] private float animationSpeed = 1;
+    
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] collisionClips;
     
     private bool _shouldAdjustScale = false;
     private float _givenScale = 0;
@@ -60,6 +64,9 @@ public class BiliardBall : MonoBehaviour
                 _givenScale = minTotalScale - CalculateTotalScale();
             }
 
+            audioSource.clip = collisionClips[Random.Range(0, collisionClips.Length)];
+            audioSource.Play();
+            
             _shouldAdjustScale = false;
         }
         else 

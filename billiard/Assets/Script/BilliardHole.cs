@@ -6,6 +6,8 @@ public class BilliardHole : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private float maxScale;
     
+    [SerializeField] private AudioSource audioSource;
+    
     public event Action<int, BiliardBall> OnScoreBall;
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,5 +19,7 @@ public class BilliardHole : MonoBehaviour
             return;
         
         OnScoreBall?.Invoke(score, ball);
+        TextPopup.Create(transform.position, $"+{score}");
+        audioSource.Play();
     }
 }

@@ -140,7 +140,9 @@ MonoBehaviour:
   targetBall: {fileID: 0}
   stickSpriteTransform: {fileID: 6973060317115444184}
   stickLenght: 8
+  stickShootAnimationMaxOffset: 3.75
   aimAssistLine: {fileID: 7063915176562783399}
+  hitClip: {fileID: 8300000, guid: 4fc2f5ada92836f4cb9eaf136a25be16, type: 3}
 --- !u!1 &8940978195153248103
 GameObject:
   m_ObjectHideFlags: 0

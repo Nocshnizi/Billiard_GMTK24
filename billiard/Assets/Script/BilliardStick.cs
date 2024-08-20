@@ -15,7 +15,11 @@ public class BilliardStick : MonoBehaviour
     [SerializeField] private Transform stickSpriteTransform;
     [SerializeField] private float stickLenght;
     
+    [SerializeField] private float stickShootAnimationMaxOffset;
+    
     [SerializeField] private LineRenderer aimAssistLine;
+    
+    [SerializeField] private AudioClip hitClip;
     
     public event Action<bool> UpdateChargeStatus;
     public event Action<float> UpdateShootForceValue;
@@ -37,7 +41,8 @@ public class BilliardStick : MonoBehaviour
     private float _chargingTimer;
     
     private readonly RaycastHit2D[] _hits = new RaycastHit2D[1];
-    
+
+
     private void Update()
     {
         if(targetBall == null)
@@ -45,7 +50,9 @@ public class BilliardStick : MonoBehaviour
         
         transform.position = targetBall.transform.position;
         float ballSize = targetBall.transform.localScale.x;
-        stickSpriteTransform.localPosition = new Vector3(0, -(stickLenght + ballSize + 0.2f), 0);
+        float chargeProgress = _chargingTimer / shootForceChargeingTime;
+        float chargeOffset = stickShootAnimationMaxOffset * (chargeProgress * chargeProgress);
+        stickSpriteTransform.localPosition = new Vector3(0, -(stickLenght + ballSize +  chargeOffset + 0.2f), 0);
         
         RotateStick();
         UpdateShootForce();
@@ -61,6 +68,7 @@ public class BilliardStick : MonoBehaviour
     {
         targetBall.AddForce(transform.up * force, ForceMode2D.Impulse);
         targetBall.AddTorque((Random.Range(0, 2) - 1) * (force + Random.Range(60, 90)) * Mathf.Deg2Rad, ForceMode2D.Impulse);
+        
     }
     
     private void RotateStick()
@@ -98,6 +106,7 @@ public class BilliardStick : MonoBehaviour
             Shoot(shootForce);
             IsCharge = false;
             _chargingTimer = 0;
+            GameAssets.Instance.AudioSource.PlayOneShot(hitClip);
         }
     }
 
