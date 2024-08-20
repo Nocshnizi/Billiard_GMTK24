@@ -21,6 +21,8 @@ public class BilliardStick : MonoBehaviour
     
     [SerializeField] private AudioClip hitClip;
     
+    [SerializeField] private AudioSource chargingAudioSource;
+    
     public event Action<bool> UpdateChargeStatus;
     public event Action<float> UpdateShootForceValue;
     
@@ -89,6 +91,7 @@ public class BilliardStick : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             IsCharge = true;
+            chargingAudioSource.Play();
         }
         
         if(!IsCharge)
@@ -106,6 +109,7 @@ public class BilliardStick : MonoBehaviour
             Shoot(shootForce);
             IsCharge = false;
             _chargingTimer = 0;
+            chargingAudioSource.Stop();
             GameAssets.Instance.AudioSource.PlayOneShot(hitClip);
         }
     }

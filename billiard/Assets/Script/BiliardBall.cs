@@ -20,7 +20,8 @@ public class BiliardBall : MonoBehaviour
     
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] collisionClips;
-    
+    [SerializeField] private AudioSource rollingBall;
+
     private bool _shouldAdjustScale = false;
     private float _givenScale = 0;
     private Material _material;
