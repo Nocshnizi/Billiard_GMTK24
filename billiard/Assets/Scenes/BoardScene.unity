@@ -323,7 +323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8070686850402279387, guid: a4fa7cd94c60a0048914b7583020e97a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1137,7 +1137,7 @@ Transform:
   m_GameObject: {fileID: 725402408}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.010817647, w: 0.9999415}
-  m_LocalPosition: {x: 22.95, y: -13.91, z: 0}
+  m_LocalPosition: {x: 20.27, y: -13.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1721,7 +1721,7 @@ Transform:
   m_GameObject: {fileID: 1020479617}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.010237206, w: 0.9999476}
-  m_LocalPosition: {x: 25.24, y: 8.83, z: 0}
+  m_LocalPosition: {x: -21.72, y: -14.98, z: 0}
   m_LocalScale: {x: 0.57, y: 0.57, z: 0.57}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1948,6 +1948,10 @@ PrefabInstance:
     - target: {fileID: 9043604867508523219, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
       propertyPath: m_Name
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043604867508523219, guid: c551ac3ab49a9f44f987925a409e2c1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2559,6 +2563,10 @@ PrefabInstance:
       value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 2727643311527850715, guid: cf3696c5ea6826c4f99073828a95e7a7, type: 3}
+      propertyPath: m_text
+      value: +3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727643311527850715, guid: cf3696c5ea6826c4f99073828a95e7a7, type: 3}
       propertyPath: m_fontColor.b
       value: 0.2595229
       objectReference: {fileID: 0}
@@ -2615,13 +2623,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544076580}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.509148, w: 0.86067903}
-  m_LocalPosition: {x: 16.9, y: -14.13, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.77622014, w: 0.630462}
+  m_LocalPosition: {x: -16.95, y: -14.58, z: 0}
   m_LocalScale: {x: 0.45999998, y: 0.45999998, z: 0.46}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2041649375}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -61.214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 101.832}
 --- !u!212 &1544076582
 SpriteRenderer:
   m_ObjectHideFlags: 0

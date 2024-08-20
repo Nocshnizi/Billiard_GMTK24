@@ -7625,6 +7625,7 @@ MonoBehaviour:
   soundSlider: {fileID: 1875227653}
   musicMixer: {fileID: -7353664949980449719, guid: e6557adc0ffaa1946bef725b12522ae9, type: 2}
   soundMixer: {fileID: -2657332434079821008, guid: e6557adc0ffaa1946bef725b12522ae9, type: 2}
+  effectMixer: {fileID: -4401172678422172953, guid: e6557adc0ffaa1946bef725b12522ae9, type: 2}
 --- !u!1 &1949806199
 GameObject:
   m_ObjectHideFlags: 0
@@ -8031,6 +8032,7 @@ MonoBehaviour:
   soundSlider: {fileID: 1875227653}
   musicMixer: {fileID: -7353664949980449719, guid: e6557adc0ffaa1946bef725b12522ae9, type: 2}
   soundMixer: {fileID: -2657332434079821008, guid: e6557adc0ffaa1946bef725b12522ae9, type: 2}
+  effectMixer: {fileID: -4401172678422172953, guid: e6557adc0ffaa1946bef725b12522ae9, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

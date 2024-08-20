@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioMixerGroup musicMixer;
     [SerializeField] private AudioMixerGroup soundMixer;
+    [SerializeField] private AudioMixerGroup effectMixer;
 
     public void ChangeMusicVolume(float vol)
     {
@@ -16,6 +17,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public void ChangeSoundVolume(float vol) {
-        musicMixer.audioMixer.SetFloat("SoundVolume", Mathf.Lerp(-30, 1, vol));
+        soundMixer.audioMixer.SetFloat("SoundVolume", Mathf.Lerp(-30, 1, vol));
+        effectMixer.audioMixer.SetFloat("EffectVolume", Mathf.Lerp(-30, 1, vol));
     }
 }
