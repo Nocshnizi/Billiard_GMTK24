@@ -11,11 +11,7 @@ public class ForceSliderUI : MonoBehaviour
     private void Start()
     {
         stick.UpdateChargeStatus += (isCharging) => fillBar.SetActive(isCharging);
-        stick.UpdateShootForceValue += (value) =>
-        {
-            fillImage.fillAmount = value / (stick.ShootForceRange.y - stick.ShootForceRange.x);
-            fillImage.fillAmount = Mathf.Pow(fillImage.fillAmount, 3);
-        };
+        stick.UpdateShootForceValue += (value) => fillImage.fillAmount = value;
         fillBar.SetActive(false);
     }
 }
